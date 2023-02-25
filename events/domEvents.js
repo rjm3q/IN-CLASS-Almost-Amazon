@@ -1,5 +1,6 @@
 import addBookForm from '../components/forms/addBookForm';
 import addAuthorForm from '../components/forms/addAuthorForm';
+import { getSingleBook } from '../api/bookData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {

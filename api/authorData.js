@@ -3,10 +3,31 @@ import client from '../utils/client';
 const endpoint = client.databaseURL;
 
 // FIXME:  GET ALL AUTHORS
-const getAuthors = () => {};
+const getAuthors = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/authors.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }, // you technically do not need the options object for GET requests, but using it here for consistency
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
 
 // FIXME: CREATE AUTHOR
-const createAuthor = () => {};
+const createAuthor = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/authors.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    }, // you technically do not need the options object for GET requests, but using it here for consistency
+    body: JSON.stringify(payload)
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
 
 // FIXME: GET SINGLE AUTHOR
 const getSingleAuthor = () => {};
@@ -15,7 +36,18 @@ const getSingleAuthor = () => {};
 const deleteSingleAuthor = () => {};
 
 // FIXME: UPDATE AUTHOR
-const updateAuthor = () => {};
+const updateAuthor = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/authors/${payload.firebaseKey}.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    }, // you technically do not need the options object for GET requests, but using it here for consistency
+    body: JSON.stringify(payload)
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
 
 // TODO: GET A SINGLE AUTHOR'S BOOKS
 const getAuthorBooks = () => {};
