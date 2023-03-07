@@ -23,7 +23,7 @@ const domEvents = (user) => {
 
     // TODO: CLICK EVENT FOR SHOWING FORM FOR ADDING A BOOK
     if (e.target.id.includes('add-book-btn')) {
-      addBookForm(user.uid);
+      addBookForm(user);
     }
 
     // TODO: CLICK EVENT EDITING/UPDATING A BOOK
@@ -52,7 +52,7 @@ const domEvents = (user) => {
     // FIXME: ADD CLICK EVENT FOR SHOWING FORM FOR ADDING AN AUTHOR
     if (e.target.id.includes('add-author-btn')) {
       console.warn('ADD AUTHOR');
-      addAuthorForm(user.uid);
+      addAuthorForm(user);
     }
     // FIXME: ADD CLICK EVENT FOR EDITING AN AUTHOR
     if (e.target.id.includes('update-author')) {

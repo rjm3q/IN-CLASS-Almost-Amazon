@@ -90,7 +90,9 @@ const getFavoriteAuthors = () => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => {
+      const authFilter = Object.values(data).filter((item) => item.favorite);
+    })
     .catch(reject);
 });
 
